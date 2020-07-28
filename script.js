@@ -20,7 +20,24 @@ pushElementOnQueue = () => {// добавление элементов в нач
 
 }//конец функции pushElementOnQueue()
 
+deleteElementFromQueue = () => { // удаляем первый элемент из очереди (первым зашел, первым вышел - принцип очереди)
+    let deleteLastElement = document.querySelector('#btn2')
+    deleteLastElement.addEventListener('click',function () {
+        queue.shift()
+    })
+}//конец функции deleteElementFromQueue()
+
+saveQueueInLocalStorage = () => { // можем сохранить нашу очередь в local storage браузера
+    let saveQueue = document.querySelector('#btn3')
+    saveQueue.addEventListener('click',function () {
+        let json = JSON.stringify(queue)
+        localStorage.setItem('queue',json)
+    })
+}//конец функции saveQueueInLocalStorage()
+
 pushElementOnQueue()
+deleteElementFromQueue()
+saveQueueInLocalStorage()
 
 
 
